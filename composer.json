@@ -18,7 +18,7 @@
     "php": ">=7.4",
     "symfony/form": "^5.0|^6.0",
     "symfony/framework-bundle": "^5.0|^6.0",
-    "symfony/expression-language": "^5.0|^6.0",
+    "symfony/http-client": "^5.0|^6.0",
     "symfony/yaml": "^5.0|^6.0",
     "symfony/validator": "^5.0|^6.0",
     "symfony/twig-bundle": "^5.0|^6.0",
@@ -28,5 +28,9 @@
     "psr-4": {
       "PixelDev\\CloudflareTurnstileBundle\\": ""
     }
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^1.8",
+    "phpstan/phpstan-symfony": "^1.2"
   }
 }
