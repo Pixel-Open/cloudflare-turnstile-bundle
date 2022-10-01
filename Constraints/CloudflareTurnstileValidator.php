@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
+
 class CloudflareTurnstileValidator extends ConstraintValidator
 {
 
@@ -45,7 +46,7 @@ class CloudflareTurnstileValidator extends ConstraintValidator
      * @param mixed $value The value that should be validated
      * @param Constraint $constraint The constraint for the validation
      */
-    public function validate($value, Constraint $constraint)
+    public function validate($value, Constraint $constraint): void
     {
         $request = $this->requestStack->getCurrentRequest();
         $turnstileResponse = $request->request->get('cf-turnstile-response');
@@ -69,7 +70,7 @@ class CloudflareTurnstileValidator extends ConstraintValidator
 
     }
 
-    private function addViolation(Constraint $constraint)
+    private function addViolation(Constraint $constraint): void
     {
         $this->context->buildViolation($constraint->message)->addViolation();
     }
