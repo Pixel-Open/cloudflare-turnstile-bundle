@@ -14,8 +14,8 @@ composer require pixeldev/cloudflare-turnstile-bundle
 Visit Cloudflare to create your site key and secret key and add them to your `.env` file.
 
 ```
-TURNSTILE_SITE_KEY="1x00000000000000000000AA"
-TURNSTILE_SECRET_KEY="2x0000000000000000000000000000000AA"
+TURNSTILE_KEY="1x00000000000000000000AA"
+TURNSTILE_SECRET="2x0000000000000000000000000000000AA"
 ```
 
 ## License
