@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 namespace PixelDev\CloudflareTurnstileBundle;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
