@@ -2,16 +2,13 @@
 
 namespace PixelDev\CloudflareTurnstileBundle\Constraints;
 
-
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-
 class CloudflareTurnstileValidator extends ConstraintValidator
 {
-
     /**
      * @var string
      */
@@ -67,7 +64,6 @@ class CloudflareTurnstileValidator extends ConstraintValidator
             $this->addviolation($constraint);
             return;
         }
-
     }
 
     private function addViolation(Constraint $constraint): void

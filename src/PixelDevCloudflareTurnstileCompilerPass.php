@@ -1,11 +1,12 @@
 <?php
+
 namespace PixelDev\CloudflareTurnstileBundle;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class PixelDevCloudflareTurnstileCompilerPass implements CompilerPassInterface {
-
+class PixelDevCloudflareTurnstileCompilerPass implements CompilerPassInterface
+{
     /**
      * You can modify the container here before it is dumped to PHP code.
      */

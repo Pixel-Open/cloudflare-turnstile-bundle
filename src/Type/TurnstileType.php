@@ -11,7 +11,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class TurnstileType extends AbstractType
 {
-
     /**
      * @var string
      */
@@ -32,9 +31,7 @@ class TurnstileType extends AbstractType
 
     public function buildView(FormView $view, FormInterface $form, array $options): void
     {
-
         $view->vars['key'] = $this->key;
-
     }
 
     public function getBlockPrefix()
@@ -46,5 +43,4 @@ class TurnstileType extends AbstractType
     {
         return TextType::class;
     }
-
 }

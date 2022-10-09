@@ -17,7 +17,6 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-
         $treeBuilder = new TreeBuilder('pixeldev_cloudflare_turnstile');
         $rootNode = $treeBuilder->getRootNode();
 
