@@ -32,6 +32,7 @@
   "require-dev": {
     "phpstan/phpstan": "^1.8",
     "phpstan/phpstan-symfony": "^1.2",
-    "symplify/easy-coding-standard": "^11.1"
+    "symplify/easy-coding-standard": "^11.1",
+    "rector/rector": "^0.14.5"
   }
 }

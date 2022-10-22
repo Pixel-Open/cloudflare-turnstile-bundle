@@ -3,11 +3,9 @@ includes:
 
 parameters:
     paths:
-        - .
+        - src
     level: 8
     excludes_analyse:
-        - %currentWorkingDirectory%/DependencyInjection/Configuration.php
+        - %currentWorkingDirectory%/src/DependencyInjection/Configuration.php
         - %currentWorkingDirectory%/vendor/*
         - %currentWorkingDirectory%/Tests/*
-
-
