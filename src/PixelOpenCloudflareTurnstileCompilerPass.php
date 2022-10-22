@@ -1,12 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace PixelDev\CloudflareTurnstileBundle;
+namespace PixelOpen\CloudflareTurnstileBundle;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class PixelDevCloudflareTurnstileCompilerPass implements CompilerPassInterface
+class PixelOpenCloudflareTurnstileCompilerPass implements CompilerPassInterface
 {
     /**
      * You can modify the container here before it is dumped to PHP code.
@@ -16,7 +16,7 @@ class PixelDevCloudflareTurnstileCompilerPass implements CompilerPassInterface
         if ($container->hasParameter('twig.form.resources')) {
             /** @var array $resources */
             $resources = $container->getParameter('twig.form.resources') ?: [];
-            array_unshift($resources, '@PixelDevCloudflareTurnstile/fields.html.twig');
+            array_unshift($resources, '@PixelOpenCloudflareTurnstile/fields.html.twig');
             $container->setParameter('twig.form.resources', $resources);
         }
     }

@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace PixelDev\CloudflareTurnstileBundle\Constraints;
+namespace PixelOpen\CloudflareTurnstileBundle\Constraints;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Validator\Constraint;

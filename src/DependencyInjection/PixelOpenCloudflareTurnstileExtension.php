@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace PixelDev\CloudflareTurnstileBundle\DependencyInjection;
+namespace PixelOpen\CloudflareTurnstileBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * @link http://symfony.com/doc/current/cookbook/bundles/extension.html
  */
-class PixelDevCloudflareTurnstileExtension extends Extension
+class PixelOpenCloudflareTurnstileExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -27,7 +27,7 @@ class PixelDevCloudflareTurnstileExtension extends Extension
         $loader->load('services.yml');
 
         foreach ($config as $key => $value) {
-            $container->setParameter('pixeldev_cloudflare_turnstile.' . $key, $value);
+            $container->setParameter('pixelopen_cloudflare_turnstile.' . $key, $value);
         }
     }
 }
