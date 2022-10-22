@@ -1,3 +1,0 @@
-pixel_open_cloudflare_turnstile:
-  key: '%env(TURNSTILE_KEY)%'
-  secret: '%env(TURNSTILE_SECRET)%'
