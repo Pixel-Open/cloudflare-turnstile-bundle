@@ -15,6 +15,12 @@ You can install the package via Composer:
 composer require pixeldev/cloudflare-turnstile-bundle
 ```
 
+Add bundle into config/bundles.php file :
+
+```php
+PixelDev\CloudflareTurnstileBundle\PixelDevCloudflareTurnstileBundle::class => ['all' => true]
+```
+
 Visit Cloudflare to create your site key and secret key and add them to your `.env` file.
 
 ```
@@ -41,6 +47,10 @@ Use the following sitekeys and secret keys for testing purposes:
 | 1x0000000000000000000000000000000AA | Always passes                        |
 | 2x0000000000000000000000000000000AA | Always fails                         |
 | 3x0000000000000000000000000000000AA | Yields a "token already spent" error |
+
+## Todo
+
++ Add phpunit to test field and validator
 
 ## License
 
