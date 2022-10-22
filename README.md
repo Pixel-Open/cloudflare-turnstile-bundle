@@ -22,12 +22,58 @@ Add bundle into config/bundles.php file :
 ```php
 PixelOpen\CloudflareTurnstileBundle\PixelOpenCloudflareTurnstileBundle::class => ['all' => true]
 ```
+Add a config file into config/packages/pixel_open_cloudflare_turnstile.yaml : 
+
+```yaml
+pixel_open_cloudflare_turnstile:
+  key: '%env(TURNSTILE_KEY)%'
+  secret: '%env(TURNSTILE_SECRET)%'
+```
 
 Visit Cloudflare to create your site key and secret key and add them to your `.env` file.
 
 ```
 TURNSTILE_KEY="1x00000000000000000000AA"
 TURNSTILE_SECRET="2x0000000000000000000000000000000AA"
+```
+
+### Use with your Symfony Form
+
+Create a form type and insert an Turnstile Type to add a Cloudflare Turnstile : 
+
+```php
+<?php
+
+namespace App\Form;
+
+use App\Entity\Contact;
+use PixelOpen\CloudflareTurnstileBundle\Type\TurnstileType;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+class ContactType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $builder
+            ->add('name', TextType::class, ['label' => false, 'attr' => ['placeholder' => 'name']])
+            ->add('message', TextareaType::class, ['label' => false, 'attr' => ['placeholder' => 'message']])
+            ->add('security', TurnstileType::class, ['attr' => ['data-action' => 'contact', 'data-theme' => 'dark'], 'label' => false])
+            ->add('submit', SubmitType::class)
+        ;
+    }
+
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'data_class' => Contact::class,
+        ]);
+    }
+}
 ```
 
 ### Testing
