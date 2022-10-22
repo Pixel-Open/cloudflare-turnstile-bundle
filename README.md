@@ -20,7 +20,7 @@ composer require pixelopen/cloudflare-turnstile-bundle
 Add bundle into config/bundles.php file :
 
 ```php
-PixelDev\CloudflareTurnstileBundle\PixelDevCloudflareTurnstileBundle::class => ['all' => true]
+PixelOpen\CloudflareTurnstileBundle\PixelOpenCloudflareTurnstileBundle::class => ['all' => true]
 ```
 
 Visit Cloudflare to create your site key and secret key and add them to your `.env` file.

@@ -34,5 +34,12 @@
     "phpstan/phpstan-symfony": "^1.2",
     "symplify/easy-coding-standard": "^11.1",
     "rector/rector": "^0.14.5"
+  },
+  "env": {
+    "TURNSTILE_KEY": "3x00000000000000000000FF",
+    "TURNSTILE_SECRET": "1x0000000000000000000000000000000AA"
+  },
+  "copy-from-recipe": {
+    "config/": "%CONFIG_DIR%/"
   }
 }
