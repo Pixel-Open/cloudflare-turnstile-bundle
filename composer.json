@@ -1,5 +1,5 @@
 {
-  "name": "pixeldev/cloudflare-turnstile-bundle",
+  "name": "pixelopen/cloudflare-turnstile-bundle",
   "description": "A simple package to help integrate Cloudflare Turnstile on Symfony.",
   "keywords": [
     "symfony bundle",
@@ -10,8 +10,8 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Pixel Developpement",
-      "homepage": "https://www.pixel-developpement.com"
+      "name": "Pixel Open Team",
+      "homepage": "https://pixel-open.org/"
     }
   ],
   "require": {
