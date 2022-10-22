@@ -7,12 +7,14 @@ A simple package to help integrate Cloudflare Turnstile on Symfony Form.
 
 This packages provides helper for setting up and validating Cloudflare Turnstile CAPTCHA responses.
 
+![Cloudflare Turnstile for Symfony Form](screenshot.png)
+
 ## Installation
 
 You can install the package via Composer:
 
 ```bash
-composer require pixeldev/cloudflare-turnstile-bundle
+composer require pixelopen/cloudflare-turnstile-bundle
 ```
 
 Add bundle into config/bundles.php file :
