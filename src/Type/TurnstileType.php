@@ -35,12 +35,12 @@ class TurnstileType extends AbstractType
         $view->vars['key'] = $this->key;
     }
 
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string
     {
         return 'turnstile';
     }
 
-    public function getParent()
+    public function getParent(): ?string
     {
         return TextType::class;
     }
