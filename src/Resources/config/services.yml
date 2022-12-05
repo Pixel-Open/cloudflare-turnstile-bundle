@@ -1,0 +1,12 @@
+services:
+  turnstile.type:
+    class: PixelOpen\CloudflareTurnstileBundle\Type\TurnstileType
+    tags: ['form.type']
+    arguments:
+      $key: '%pixelopen_cloudflare_turnstile.key%'
+  turnstile.validator:
+    class: PixelOpen\CloudflareTurnstileBundle\Constraints\CloudflareTurnstileValidator
+    tags: ['validator.constraint_validator']
+    arguments:
+      $secret: '%pixelopen_cloudflare_turnstile.secret%'
+    autowire: true
