@@ -31,3 +31,6 @@ jobs:
       
     - name: Run Easy Coding Standard
       run: vendor/bin/ecs check src
+
+    - name: Run phpstan
+      run: vendor/bin/phpstan analyse

@@ -50,7 +50,7 @@ class CloudflareTurnstileValidator extends ConstraintValidator
         $turnstileResponse = $request->request->get('cf-turnstile-response');
 
         if (empty($turnstileResponse)) {
-            $this->addviolation($constraint);
+            $this->context->buildViolation($constraint->message)->addviolation();
             return;
         }
 
@@ -62,13 +62,8 @@ class CloudflareTurnstileValidator extends ConstraintValidator
         $content = $response->toArray();
 
         if (!$content['success']) {
-            $this->addviolation($constraint);
+            $this->context->buildViolation($constraint->message)->addviolation();
             return;
         }
-    }
-
-    private function addViolation(Constraint $constraint): void
-    {
-        $this->context->buildViolation($constraint->message)->addViolation();
     }
 }
