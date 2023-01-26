@@ -15,7 +15,7 @@ jobs:
     - name: Setup PHP, with composer and extensions
       uses: shivammathur/setup-php@v2 #https://github.com/shivammathur/setup-php
       with:
-        extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, mysql, zip
+        extensions: mbstring, xml, ctype, iconv, intl
 
     - name: Cache Composer packages
       id: composer-cache
@@ -28,6 +28,9 @@ jobs:
 
     - name: Install dependencies
       run: composer install --no-interaction --no-progress
+
+    - name: Check for vulnerabilities
+      uses: symfonycorp/security-checker-action@v4
       
     - name: Run Easy Coding Standard
       run: vendor/bin/ecs check src
