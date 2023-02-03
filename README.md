@@ -1,6 +1,7 @@
 A simple package to help integrate Cloudflare Turnstile on Symfony Form.
 ======================
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/76daee2b5590486ebc7480f19e471275)](https://app.codacy.com/gh/Pixel-Open/cloudflare-turnstile-bundle?utm_source=github.com&utm_medium=referral&utm_content=Pixel-Open/cloudflare-turnstile-bundle&utm_campaign=Badge_Grade_Settings)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-green)](https://php.net/)
 [![Minimum Symfony Version](https://img.shields.io/badge/symfony-%3E%3D%205.4-green)](https://symfony.com)
 [![GitHub release](https://img.shields.io/github/v/release/Pixel-Open/cloudflare-turnstile-bundle)](https://github.com/Pixel-Open/cloudflare-turnstile-bundle/releases)
