@@ -25,12 +25,6 @@ class CloudflareTurnstileValidator extends ConstraintValidator
      */
     private $httpClient;
 
-
-    /**
-     * @param string $secret
-     * @param RequestStack $requestStack
-     * @param HttpClientInterface $httpClient
-     */
     public function __construct(string $secret, RequestStack $requestStack, HttpClientInterface $httpClient)
     {
         $this->secret = $secret;
@@ -50,25 +44,25 @@ class CloudflareTurnstileValidator extends ConstraintValidator
         $turnstileResponse = $request->request->get('cf-turnstile-response');
 
         if (empty($turnstileResponse)) {
-            $this->addviolation($constraint);
+            $this->context->buildViolation($constraint->message)->addviolation();
             return;
         }
 
         $response = $this->httpClient->request(
             'POST',
             'https://challenges.cloudflare.com/turnstile/v0/siteverify',
-            ['body' => ['response' => $turnstileResponse, 'secret' => $this->secret]]
+            [
+                'body' => [
+                    'response' => $turnstileResponse,
+                    'secret' => $this->secret,
+                ],
+            ]
         );
         $content = $response->toArray();
 
-        if (!$content['success']) {
-            $this->addviolation($constraint);
+        if (! $content['success']) {
+            $this->context->buildViolation($constraint->message)->addviolation();
             return;
         }
-    }
-
-    private function addViolation(Constraint $constraint): void
-    {
-        $this->context->buildViolation($constraint->message)->addViolation();
     }
 }

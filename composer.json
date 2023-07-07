@@ -11,7 +11,7 @@
   "authors": [
     {
       "name": "Pixel Open Team",
-      "homepage": "https://pixel-open.org/"
+      "homepage": "https://pixel-open.org/projects/symfony-bundle-cloudflare-turnstile/"
     }
   ],
   "require": {

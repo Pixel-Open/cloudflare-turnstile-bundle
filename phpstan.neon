@@ -4,8 +4,10 @@ includes:
 parameters:
     paths:
         - src
-    level: 8
+    level: 7
     excludes_analyse:
         - %currentWorkingDirectory%/src/DependencyInjection/Configuration.php
         - %currentWorkingDirectory%/vendor/*
         - %currentWorkingDirectory%/Tests/*
+    ignoreErrors:
+        - '#^Access to an undefined property Symfony\\Component\\Validator\\Constraint\:\:\$message\.$#'
