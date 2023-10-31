@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace PixelOpen\CloudflareTurnstileBundle\Constraints;
 
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -16,6 +17,11 @@ class CloudflareTurnstileValidator extends ConstraintValidator
     private $secret;
 
     /**
+     * @var bool
+     */
+    private $enable;
+
+    /**
      * @var RequestStack
      */
     private $requestStack;
@@ -25,9 +31,10 @@ class CloudflareTurnstileValidator extends ConstraintValidator
      */
     private $httpClient;
 
-    public function __construct(string $secret, RequestStack $requestStack, HttpClientInterface $httpClient)
+    public function __construct(string $secret, bool $enable, RequestStack $requestStack, HttpClientInterface $httpClient)
     {
         $this->secret = $secret;
+        $this->enable = $enable;
         $this->requestStack = $requestStack;
         $this->httpClient = $httpClient;
     }
@@ -40,29 +47,31 @@ class CloudflareTurnstileValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint): void
     {
-        $request = $this->requestStack->getCurrentRequest();
-        $turnstileResponse = $request->request->get('cf-turnstile-response');
+        if ($this->enable) {
+            $request = $this->requestStack->getCurrentRequest();
+            $turnstileResponse = $request->request->get('cf-turnstile-response');
 
-        if (empty($turnstileResponse)) {
-            $this->context->buildViolation($constraint->message)->addviolation();
-            return;
-        }
+            if (empty($turnstileResponse)) {
+                $this->context->buildViolation($constraint->message)->addviolation();
+                return;
+            }
 
-        $response = $this->httpClient->request(
-            'POST',
-            'https://challenges.cloudflare.com/turnstile/v0/siteverify',
-            [
-                'body' => [
-                    'response' => $turnstileResponse,
-                    'secret' => $this->secret,
-                ],
-            ]
-        );
-        $content = $response->toArray();
+            $response = $this->httpClient->request(
+                'POST',
+                'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+                [
+                    'body' => [
+                        'response' => $turnstileResponse,
+                        'secret' => $this->secret,
+                    ],
+                ]
+            );
+            $content = $response->toArray();
 
-        if (! $content['success']) {
-            $this->context->buildViolation($constraint->message)->addviolation();
-            return;
+            if (! $content['success']) {
+                $this->context->buildViolation($constraint->message)->addviolation();
+                return;
+            }
         }
     }
 }

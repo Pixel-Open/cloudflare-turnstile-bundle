@@ -29,6 +29,7 @@ Add a config file into config/packages/pixel_open_cloudflare_turnstile.yaml :
 pixel_open_cloudflare_turnstile:
   key: '%env(TURNSTILE_KEY)%'
   secret: '%env(TURNSTILE_SECRET)%'
+  enable : true
 ```
 
 Visit Cloudflare to create your site key and secret key and add them to your `.env` file.

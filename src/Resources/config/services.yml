@@ -4,9 +4,11 @@ services:
     tags: ['form.type']
     arguments:
       $key: '%pixelopen_cloudflare_turnstile.key%'
+      $enable: '%pixelopen_cloudflare_turnstile.enable%'
   turnstile.validator:
     class: PixelOpen\CloudflareTurnstileBundle\Constraints\CloudflareTurnstileValidator
     tags: ['validator.constraint_validator']
     arguments:
       $secret: '%pixelopen_cloudflare_turnstile.secret%'
+      $enable: '%pixelopen_cloudflare_turnstile.enable%'
     autowire: true
