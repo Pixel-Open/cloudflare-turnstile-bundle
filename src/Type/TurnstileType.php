@@ -17,9 +17,15 @@ class TurnstileType extends AbstractType
      */
     private $key;
 
-    public function __construct(string $key)
+    /**
+     * @var bool
+     */
+    private $enable;
+
+    public function __construct(string $key, bool $enable)
     {
         $this->key = $key;
+        $this->enable = $enable;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -33,6 +39,7 @@ class TurnstileType extends AbstractType
     public function buildView(FormView $view, FormInterface $form, array $options): void
     {
         $view->vars['key'] = $this->key;
+        $view->vars['enable'] = $this->enable;
     }
 
     public function getBlockPrefix(): string
