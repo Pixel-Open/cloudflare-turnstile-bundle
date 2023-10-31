@@ -47,9 +47,7 @@ class CloudflareTurnstileValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint): void
     {
-
         if ($this->enable) {
-
             $request = $this->requestStack->getCurrentRequest();
             $turnstileResponse = $request->request->get('cf-turnstile-response');
 
@@ -70,7 +68,7 @@ class CloudflareTurnstileValidator extends ConstraintValidator
             );
             $content = $response->toArray();
 
-            if (!$content['success']) {
+            if (! $content['success']) {
                 $this->context->buildViolation($constraint->message)->addviolation();
                 return;
             }
