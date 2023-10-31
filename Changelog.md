@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0 (31/10/2023)
+
++ Add enable option
+
 ## 0.1.4 (07/07/2023)
 
 + Prefer defer to async to improve page speed #2 (thank Huluti)
