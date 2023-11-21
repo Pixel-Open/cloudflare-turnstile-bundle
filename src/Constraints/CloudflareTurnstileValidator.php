@@ -49,7 +49,7 @@ class CloudflareTurnstileValidator extends ConstraintValidator
     {
         if ($this->enable) {
             $request = $this->requestStack->getCurrentRequest();
-            $turnstileResponse = $request->request->get('cf-turnstile-response');
+            $turnstileResponse = $request->request->get('cf-turnstile-response', $value);
 
             if (empty($turnstileResponse)) {
                 $this->context->buildViolation($constraint->message)->addviolation();
