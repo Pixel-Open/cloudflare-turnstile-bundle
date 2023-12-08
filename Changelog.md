@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0 (08/12/2023)
+
++ Allow Symfony 7 (thank you HeahDude)
+
 ## 0.2.0 (31/10/2023)
 
 + Add enable option
