@@ -4,7 +4,7 @@ A simple package to help integrate Cloudflare Turnstile on Symfony Form.
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-green)](https://php.net/)
 [![Minimum Symfony Version](https://img.shields.io/badge/symfony-%3E%3D%205.4-green)](https://symfony.com)
 [![GitHub release](https://img.shields.io/github/v/release/Pixel-Open/cloudflare-turnstile-bundle)](https://github.com/Pixel-Open/cloudflare-turnstile-bundle/releases)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ddb39773b71a4ad2ac4bd08fbb7b09e3)](https://www.codacy.com/gh/Pixel-Open/cloudflare-turnstile-bundle/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Pixel-Open/cloudflare-turnstile-bundle&amp;utm_campaign=Badge_Grade)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Pixel-Open_cloudflare-turnstile-bundle&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Pixel-Open_cloudflare-turnstile-bundle)
 
 This packages provides helper for setting up and validating Cloudflare Turnstile CAPTCHA responses.
 
