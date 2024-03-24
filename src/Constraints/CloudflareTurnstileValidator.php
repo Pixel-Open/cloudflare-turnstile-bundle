@@ -31,8 +31,12 @@ class CloudflareTurnstileValidator extends ConstraintValidator
      */
     private $httpClient;
 
-    public function __construct(string $secret, bool $enable, RequestStack $requestStack, HttpClientInterface $httpClient)
-    {
+    public function __construct(
+        string $secret,
+        bool $enable,
+        RequestStack $requestStack,
+        HttpClientInterface $httpClient
+    ) {
         $this->secret = $secret;
         $this->enable = $enable;
         $this->requestStack = $requestStack;
@@ -52,7 +56,8 @@ class CloudflareTurnstileValidator extends ConstraintValidator
             $turnstileResponse = $request->request->get('cf-turnstile-response');
 
             if (empty($turnstileResponse)) {
-                $this->context->buildViolation($constraint->message)->addviolation();
+                $this->context->buildViolation($constraint->message)
+                    ->addviolation();
                 return;
             }
 
@@ -69,7 +74,8 @@ class CloudflareTurnstileValidator extends ConstraintValidator
             $content = $response->toArray();
 
             if (! $content['success']) {
-                $this->context->buildViolation($constraint->message)->addviolation();
+                $this->context->buildViolation($constraint->message)
+                    ->addviolation();
                 return;
             }
         }

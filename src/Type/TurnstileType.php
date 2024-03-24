@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace PixelOpen\CloudflareTurnstileBundle\Type;
 
 use PixelOpen\CloudflareTurnstileBundle\Constraints\CloudflareTurnstile;
