@@ -6,10 +6,11 @@ services:
       $key: '%pixelopen_cloudflare_turnstile.key%'
       $enable: '%pixelopen_cloudflare_turnstile.enable%'
   turnstile.validator:
-    class: PixelOpen\CloudflareTurnstileBundle\Constraints\CloudflareTurnstileValidator
+    class: PixelOpen\CloudflareTurnstileBundle\Validator\CloudflareTurnstileValidator
     tags: ['validator.constraint_validator']
     arguments:
       $enable: '%pixelopen_cloudflare_turnstile.enable%'
+      $turnstileHttpClient: '@turnstile.http_client'
     autowire: true
   turnstile.http_client:
     class: PixelOpen\CloudflareTurnstileBundle\Http\CloudflareTurnstileHttpClient
