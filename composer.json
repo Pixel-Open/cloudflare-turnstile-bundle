@@ -28,10 +28,16 @@
       "PixelOpen\\CloudflareTurnstileBundle\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "PixelOpen\\CloudflareTurnstileBundle\\": "tests/"
+    }
+  },
   "require-dev": {
     "phpstan/phpstan": "^1.8",
     "phpstan/phpstan-symfony": "^1.2",
     "symplify/easy-coding-standard": "^11.1",
-    "rector/rector": "^0.14.5"
+    "rector/rector": "^0.14.5",
+    "phpunit/phpunit": "^9.6"
   }
 }

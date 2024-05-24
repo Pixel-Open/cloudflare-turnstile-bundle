@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PixelOpen\CloudflareTurnstileBundle\Type;
 
-use PixelOpen\CloudflareTurnstileBundle\Constraints\CloudflareTurnstile;
+use PixelOpen\CloudflareTurnstileBundle\Validator\CloudflareTurnstile;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormInterface;
