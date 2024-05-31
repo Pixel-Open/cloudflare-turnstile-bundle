@@ -100,7 +100,7 @@ Use the following sitekeys and secret keys for testing purposes:
 
 ## Todo
 
-+ Add phpunit to test field and validator
++ Add phpunit to test field ~~and validator~~
 
 ## License
 
