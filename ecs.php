@@ -7,7 +7,10 @@ use Symplify\EasyCodingStandard\Config\ECSConfig;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
 return static function (ECSConfig $ecsConfig): void {
-    $ecsConfig->paths([__DIR__ . '/src']);
+    $ecsConfig->paths([
+        __DIR__ . '/src',
+        __DIR__ . '/tests',
+    ]);
     $ecsConfig->sets([SetList::PSR_12]);
 
     $ecsConfig->ruleWithConfiguration(ArraySyntaxFixer::class, [
@@ -16,9 +19,10 @@ return static function (ECSConfig $ecsConfig): void {
 
     $ecsConfig->sets([
         // run and fix, one by one
-         SetList::SPACES,
-         SetList::ARRAY,
-         SetList::DOCBLOCK,
-         SetList::PSR_12,
+        SetList::SPACES,
+        SetList::ARRAY,
+        SetList::DOCBLOCK,
+        SetList::PSR_12,
+        SetList::SYMPLIFY,
     ]);
 };

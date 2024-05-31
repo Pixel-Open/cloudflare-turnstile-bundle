@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0 (31/05/2024)
+
++ Decouple HTTP client and validator so we can verify responses outside Forms #7 (thank you ikvasnica)
+- Fix TreeBuilder name #8 (thank you IndraGunawan)
+
 ## 0.3.0 (08/12/2023)
 
 + Allow Symfony 7 (thank you HeahDude)

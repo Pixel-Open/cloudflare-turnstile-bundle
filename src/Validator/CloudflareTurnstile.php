@@ -1,11 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace PixelOpen\CloudflareTurnstileBundle\Constraints;
+
+namespace PixelOpen\CloudflareTurnstileBundle\Validator;
 
 use Symfony\Component\Validator\Constraint;
 
-class CloudflareTurnstile extends Constraint
+final class CloudflareTurnstile extends Constraint
 {
     /**
      * @var string

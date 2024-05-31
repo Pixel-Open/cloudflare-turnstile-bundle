@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace PixelOpen\CloudflareTurnstileBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
