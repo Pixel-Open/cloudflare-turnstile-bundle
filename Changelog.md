@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1 (30/09/2024)
+
+-  fix deprecation from Extension class #9 (thank you IndraGunawan)
+
 ## 0.4.0 (31/05/2024)
 
 + Decouple HTTP client and validator so we can verify responses outside Forms #7 (thank you ikvasnica)
