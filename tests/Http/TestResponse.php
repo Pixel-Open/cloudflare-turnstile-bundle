@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PixelOpen\CloudflareTurnstileBundle\Http;
+namespace PixelOpen\CloudflareTurnstileBundle\Tests\Http;
 
 use Symfony\Component\HttpClient\Exception\JsonException;
 use Symfony\Contracts\HttpClient\ResponseInterface;

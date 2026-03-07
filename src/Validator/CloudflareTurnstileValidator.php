@@ -41,7 +41,7 @@ final class CloudflareTurnstileValidator extends ConstraintValidator
 
         $request = $this->requestStack->getCurrentRequest();
         \assert($request !== null);
-        $turnstileResponse = (string) $request->request->get('cf-turnstile-response');
+        $turnstileResponse = (string) ($request->request->get('cf-turnstile-response') ?? $value);
 
         if ($turnstileResponse === '') {
             $this->context->buildViolation($constraint->message)
