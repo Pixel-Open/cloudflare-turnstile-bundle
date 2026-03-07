@@ -78,6 +78,35 @@ class ContactType extends AbstractType
 }
 ```
 
+### Use with PHP Attributes
+
+Since Symfony 5.2, you can use the `CloudflareTurnstile` constraint as a PHP attribute directly on your DTO or entity properties:
+
+```php
+<?php
+
+namespace App\Model;
+
+use PixelOpen\CloudflareTurnstileBundle\Validator\CloudflareTurnstile;
+
+class ContactData
+{
+    public string $name = '';
+
+    public string $message = '';
+
+    #[CloudflareTurnstile]
+    public string $turnstileToken = '';
+}
+```
+
+You can also customize the violation message:
+
+```php
+#[CloudflareTurnstile(message: 'captcha.invalid')]
+public string $turnstileToken = '';
+```
+
 ### Testing
 
 Use the following sitekeys and secret keys for testing purposes:
