@@ -9,25 +9,30 @@ on:
 jobs:
   review:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: [ "8.2", "8.3", "8.4" ]
+    name: PHP ${{ matrix.php }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Setup PHP, with composer and extensions
-      uses: shivammathur/setup-php@v2 #https://github.com/shivammathur/setup-php
+      uses: shivammathur/setup-php@v2
       with:
+        php-version: ${{ matrix.php }}
         extensions: mbstring, xml, ctype, iconv, intl
 
     - name: Cache Composer packages
       id: composer-cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        key: ${{ runner.os }}-php-${{ matrix.php }}-${{ hashFiles('**/composer.json') }}
         restore-keys: |
-          ${{ runner.os }}-php-
+          ${{ runner.os }}-php-${{ matrix.php }}-
 
     - name: Install dependencies
-      run: composer install --no-interaction --no-progress
+      run: composer update --no-interaction --no-progress --prefer-dist
 
     - name: Check for vulnerabilities
       uses: symfonycorp/security-checker-action@v4
