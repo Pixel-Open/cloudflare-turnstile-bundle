@@ -62,8 +62,6 @@ final class TurnstileTypeTest extends TypeTestCase
 
     protected function getTypes(): array
     {
-        return [
-            new TurnstileType(self::DUMMY_KEY, true),
-        ];
+        return [new TurnstileType(self::DUMMY_KEY, true)];
     }
 }
