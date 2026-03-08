@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.0 (08/03/2026)
+
++ Add support for Symfony 8
++ Add php 8.2 for minimum version (remove php 7.4)
++ PHP 8.2 improvements: readonly class, constructor property promotion, readonly properties
++ Add TurnstileType unit tests
++ Add German, Italian and Spanish translations
++ Use `booleanNode` instead of `scalarNode` for `enable` configuration option
++ Add `final` keyword to `Configuration`, `PixelOpenCloudflareTurnstileCompilerPass` and `PixelOpenCloudflareTurnstileExtension` classes
+
 ## 0.4.1 (30/09/2024)
 
 -  fix deprecation from Extension class #9 (thank you IndraGunawan)

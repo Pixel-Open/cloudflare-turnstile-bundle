@@ -1,7 +1,7 @@
 A simple package to help integrate Cloudflare Turnstile on Symfony Form.
 ======================
 
-[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-green)](https://php.net/)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%208.2-green)](https://php.net/)
 [![Minimum Symfony Version](https://img.shields.io/badge/symfony-%3E%3D%205.4-green)](https://symfony.com)
 [![GitHub release](https://img.shields.io/github/v/release/Pixel-Open/cloudflare-turnstile-bundle)](https://github.com/Pixel-Open/cloudflare-turnstile-bundle/releases)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Pixel-Open_cloudflare-turnstile-bundle&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Pixel-Open_cloudflare-turnstile-bundle)
@@ -76,6 +76,35 @@ class ContactType extends AbstractType
         ]);
     }
 }
+```
+
+### Use with PHP Attributes
+
+Since Symfony 5.2, you can use the `CloudflareTurnstile` constraint as a PHP attribute directly on your DTO or entity properties:
+
+```php
+<?php
+
+namespace App\Model;
+
+use PixelOpen\CloudflareTurnstileBundle\Validator\CloudflareTurnstile;
+
+class ContactData
+{
+    public string $name = '';
+
+    public string $message = '';
+
+    #[CloudflareTurnstile]
+    public string $turnstileToken = '';
+}
+```
+
+You can also customize the violation message:
+
+```php
+#[CloudflareTurnstile(message: 'captcha.invalid')]
+public string $turnstileToken = '';
 ```
 
 ### Testing

@@ -11,20 +11,11 @@ use Symfony\Component\Validator\ConstraintValidator;
 
 final class CloudflareTurnstileValidator extends ConstraintValidator
 {
-    private bool $enable;
-
-    private RequestStack $requestStack;
-
-    private CloudflareTurnstileHttpClient $turnstileHttpClient;
-
     public function __construct(
-        bool $enable,
-        RequestStack $requestStack,
-        CloudflareTurnstileHttpClient $turnstileHttpClient
+        private readonly bool $enable,
+        private readonly RequestStack $requestStack,
+        private readonly CloudflareTurnstileHttpClient $turnstileHttpClient,
     ) {
-        $this->enable = $enable;
-        $this->requestStack = $requestStack;
-        $this->turnstileHttpClient = $turnstileHttpClient;
     }
 
     /**
@@ -35,13 +26,13 @@ final class CloudflareTurnstileValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint): void
     {
-        if ($this->enable === false) {
+        if (! $this->enable) {
             return;
         }
 
         $request = $this->requestStack->getCurrentRequest();
         \assert($request !== null);
-        $turnstileResponse = (string) $request->request->get('cf-turnstile-response');
+        $turnstileResponse = (string) ($request->request->get('cf-turnstile-response') ?? $value);
 
         if ($turnstileResponse === '') {
             $this->context->buildViolation($constraint->message)

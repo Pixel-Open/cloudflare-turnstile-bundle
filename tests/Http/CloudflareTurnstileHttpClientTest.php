@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PixelOpen\CloudflareTurnstileBundle\Http;
+namespace PixelOpen\CloudflareTurnstileBundle\Tests\Http;
 
 use PHPUnit\Framework\TestCase;
+use PixelOpen\CloudflareTurnstileBundle\Http\CloudflareTurnstileHttpClient;
 use Psr\Log\NullLogger;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
