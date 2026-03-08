@@ -16,21 +16,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class TurnstileType extends AbstractType
 {
-    /**
-     * @var string
-     */
-    private $key;
-
-    /**
-     * @var bool
-     */
-    private $enable;
-
-    public function __construct(string $key, bool $enable)
-    {
-        $this->key = $key;
-        $this->enable = $enable;
-    }
+    public function __construct(
+        private readonly string $key,
+        private readonly bool $enable,
+    ) {}
 
     public function configureOptions(OptionsResolver $resolver): void
     {

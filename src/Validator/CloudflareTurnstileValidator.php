@@ -11,21 +11,11 @@ use Symfony\Component\Validator\ConstraintValidator;
 
 final class CloudflareTurnstileValidator extends ConstraintValidator
 {
-    private bool $enable;
-
-    private RequestStack $requestStack;
-
-    private CloudflareTurnstileHttpClient $turnstileHttpClient;
-
     public function __construct(
-        bool $enable,
-        RequestStack $requestStack,
-        CloudflareTurnstileHttpClient $turnstileHttpClient
-    ) {
-        $this->enable = $enable;
-        $this->requestStack = $requestStack;
-        $this->turnstileHttpClient = $turnstileHttpClient;
-    }
+        private readonly bool $enable,
+        private readonly RequestStack $requestStack,
+        private readonly CloudflareTurnstileHttpClient $turnstileHttpClient,
+    ) {}
 
     /**
      * Checks if the passed value is valid.
@@ -35,7 +25,7 @@ final class CloudflareTurnstileValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint): void
     {
-        if ($this->enable === false) {
+        if (!$this->enable) {
             return;
         }
 
