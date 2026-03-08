@@ -19,7 +19,8 @@ class TurnstileType extends AbstractType
     public function __construct(
         private readonly string $key,
         private readonly bool $enable,
-    ) {}
+    ) {
+    }
 
     public function configureOptions(OptionsResolver $resolver): void
     {

@@ -17,7 +17,8 @@ final readonly class CloudflareTurnstileHttpClient
         private string $secret,
         private HttpClientInterface $httpClient,
         private LoggerInterface $logger,
-    ) {}
+    ) {
+    }
 
     public function verifyResponse(string $turnstileResponse): bool
     {

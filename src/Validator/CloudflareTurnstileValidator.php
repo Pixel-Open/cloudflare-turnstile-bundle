@@ -15,7 +15,8 @@ final class CloudflareTurnstileValidator extends ConstraintValidator
         private readonly bool $enable,
         private readonly RequestStack $requestStack,
         private readonly CloudflareTurnstileHttpClient $turnstileHttpClient,
-    ) {}
+    ) {
+    }
 
     /**
      * Checks if the passed value is valid.
@@ -25,7 +26,7 @@ final class CloudflareTurnstileValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint): void
     {
-        if (!$this->enable) {
+        if (! $this->enable) {
             return;
         }
 
